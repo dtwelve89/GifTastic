@@ -1,7 +1,7 @@
-// Initial Array of Topics [7]
-var topics = ["Oakland", "Oceano", "Warriors", "Tokyo", "Seoul", "Yokohama", "Berkeley"];
+// Initial Array of Topics [8]
+var topics = ["Oakland", "Warriors", "Berkeley", "Tokyo", "Shiba Inu", "Wu-Tang Clan", "Yosemite Park", "Vietnam"];
 
-// Function re-renders the HTML to display the appropriate content
+// Function Re-rendering the HTML to Display Content
 function displayTopicInfo() {
 
   var topic = $(this).attr("data-name");
@@ -16,10 +16,9 @@ function displayTopicInfo() {
     var results = response.data;
     
     $("#topics-view").empty();
-  
-    var topicDiv = $("<div class='topic'>");
 
     for (var j = 0; j < results.length; j++) {
+      var topicDiv = $("<figure class='box'>");
       var rating = results[j].rating;
       var pRate = $("<p>").text("Rating: " + rating);
       topicDiv.append(pRate);
@@ -39,6 +38,7 @@ function displayTopicInfo() {
       $("#topics-view").prepend(topicDiv);
     }
 
+    // GIF Pause and Play Function
     $(".gif").on("click", function() {
       var state = $(this).attr("data-state");
       if (state === "still") {
@@ -52,21 +52,21 @@ function displayTopicInfo() {
   });
 }
 
-// Function for displaying topic data
+// Function for Creating and Rendering Topic Buttons
 function renderButtons() {
   
   $("#buttons-view").empty();
 
   for (var i = 0; i < topics.length; i++) {
-    var a = $("<button>");
-    a.addClass("topic-btn btn btn-info border");
-    a.attr("data-name", topics[i]);
-    a.text(topics[i]);
-    $("#buttons-view").append(a);
+    var b = $("<button>");
+    b.addClass("topic-btn btn btn-info border");
+    b.attr("data-name", topics[i]);
+    b.text(topics[i]);
+    $("#buttons-view").append(b);
   }
 }
 
-// This function handles events where a topic button is clicked
+// Submit Click Function To Add New Topic Buttons
 $("#add-topic").on("click", function(event) {
   event.preventDefault();
   
@@ -76,8 +76,8 @@ $("#add-topic").on("click", function(event) {
   renderButtons();
 });
 
-// Adding a click event listener to all elements with a class of "topic-btn"
+// Button Click Function To Render Topics in Display
 $(document).on("click", ".topic-btn", displayTopicInfo);
 
-// Calling the renderButtons function to display the intial buttons
+// Initializer
 renderButtons();

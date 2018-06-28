@@ -7,6 +7,13 @@ body{
     flex-direction:column;
   }
 
+.box{ 
+    float:left;
+    position:relative;
+    margin:10px 10px 0 0;
+    overflow:auto;
+}
+
 .container{
     width:960px;
     margin:auto;
@@ -14,17 +21,55 @@ body{
     flex:1 0 auto;
 }
 
+.topic-btn, .more-btn, #add-topic{
+    background-color:#3686a8;
+}
+
 #header{
     width:100%;
     margin-bottom:10px;
 }
 
+#topic-input{
+    margin-top:20px;
+}
+
 #main-footer{
     background-color:#666666;
-    color:white;
+    color:#fff4d7;
     font-size:x-small;
     text-align:center;
-    padding:20px 0;
-    border-top:5px solid #4aaaa5;
+    padding:2px 0;
+    margin-top:20px;
+    border-top:5px solid #3686a8;
     flex-shrink:0;
+}
+
+@media only screen and (max-width:980px){
+    .box{
+      width:45%;
+      overflow:hidden;
+    }
+    
+    .box img{
+      width:100%;
+    }
+  }
+  
+@media only screen and (max-width:640px){
+    .container{
+        float:none;
+        text-align:center;
+        width:100%;
+    }
+
+    @media only screen and (max-width:768px){
+        .box{
+          width:46.5%;
+        }
+    }
+
+    .box{
+        width:100%;
+    }
 }
