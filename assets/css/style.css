@@ -3,6 +3,7 @@ html, body{
 }
 
 body{
+    font:normal 500 16px 'Quicksand', sans-serif;
     display:flex;
     flex-direction:column;
   }
